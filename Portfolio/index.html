@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Syed Irfan — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07070b;
+  --card:#0f1221;
+  --muted:#9aa3c0;
+  --accent:#ffb859;
+  --accent-2:#7c5cff;
+}
+*{box-sizing:border-box;}
+html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;background:linear-gradient(180deg,#040412 0%, #081022 100%);color:#e6eef8;}
+/* NAV */
+nav{position:fixed;top:16px;left:24px;right:24px;display:flex;align-items:center;justify-content:space-between;z-index:999;padding:8px 16px;}
+.brand{display:flex;align-items:center;gap:12px;}
+.logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#061022;box-shadow:0 6px 24px rgba(124,92,255,0.14);}
+.navlinks{display:flex;gap:18px;align-items:center;}
+.navlinks a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600;}
+.navlinks a:hover{color:var(--accent);background:rgba(255,184,89,0.06);backdrop-filter:blur(4px);}
+
+/* HERO */
+.hero{min-height:82vh;display:flex;align-items:center;gap:40px;padding:84px 8%;position:relative;overflow:hidden;}
+.hero-left{flex:1;max-width:740px;}
+.hi{font-size:22px;color:var(--accent);font-weight:700;letter-spacing:0.6px;margin:0 0 12px 0;}
+.name{font-size:48px;line-height:1;margin:0;font-weight:800;background:linear-gradient(90deg,#fff 0%, #c8f2ff 30%, #ffd59a 70%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.tagline{margin-top:14px;font-size:20px;color:#cfe7ff;}
+.typewriter-wrap{margin-top:18px;height:36px;overflow:hidden;}
+.typewriter{display:inline-block;font-weight:700;color:#ffd89a;border-right:2px solid rgba(255,216,138,0.9);white-space:nowrap;letter-spacing:0.6px;animation:typing 4s steps(40,end) 1s forwards,blink .8s step-end infinite;max-width:100%;}
+@keyframes typing{from{width:0}to{width:100%}}
+@keyframes blink{50%{border-color:transparent}}
+
+/* RIGHT HERO */
+.hero-right{width:420px;min-height:420px;border-radius:18px;padding:18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 30px 60px rgba(2,6,23,0.6);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:14px;align-items:center;justify-content:center;}
+.hero-graphic{width:100%;height:220px;border-radius:12px;background:
+radial-gradient(circle at 10% 20%, rgba(124,92,255,0.18), transparent 7%),
+radial-gradient(circle at 80% 80%, rgba(255,184,89,0.12), transparent 8%),
+linear-gradient(180deg, rgba(12,14,30,0.9), rgba(7,8,18,0.6));
+display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.9);font-weight:700;font-size:14px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
+.badge{padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,rgba(255,255,255,0.03), rgba(255,255,255,0.02));font-weight:700;color:var(--muted);font-size:13px;border:1px solid rgba(255,255,255,0.02);}
+
+/* SECTIONS */
+.section{padding:84px 8%;}
+.section-title{font-size:32px;margin:0 0 8px 0;font-weight:800;}
+.underline{height:6px;width:96px;border-radius:6px;background:linear-gradient(90deg,var(--accent),var(--accent-2));margin-bottom:22px;}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start;}
+.about-card{grid-column:span 7;background:var(--card);padding:28px;border-radius:14px;box-shadow:0 20px 50px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.02);}
+.about-card p{color:var(--muted);line-height:1.7;margin:0;font-size:16px;}
+.info-card{grid-column:span 5;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);}
+.small-title{color:var(--accent);font-weight:800;margin-bottom:8px;font-size:14px;}
+.kv{display:flex;flex-direction:column;gap:8px;color:var(--muted);font-weight:600;}
+
+/* PROJECTS */
+.project-list{display:flex;flex-direction:column;gap:18px;margin-top:8px;}
+.project{display:flex;gap:16px;align-items:center;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));border:1px solid rgba(255,255,255,0.03);transition:transform .25s ease, box-shadow .25s ease;}
+.project:hover{transform:translateY(-8px);box-shadow:0 30px 50px rgba(2,6,23,0.6);}
+.project-thumb{width:100px;height:80px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#061022;}
+.project-info h4{margin:0 0 6px 0;font-size:18px;}
+.project-info p{margin:0;color:var(--muted);font-size:14px;}
+.gh-btn{margin-left:auto;background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px;color:var(--accent);text-decoration:none;font-weight:700;}
+
+/* CERTIFICATE */
+.cert-wrap{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;margin-top:20px;}
+.cert-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);width:420px;box-shadow:0 20px 40px rgba(2,6,23,0.5);}
+.cert-thumb{width:100%;height:260px;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#060615;cursor:pointer;}
+.cert-thumb img{width:100%;height:100%;object-fit:contain;display:block;}
+.cert-meta{margin-top:12px;color:var(--muted);font-weight:600;}
+.open-btn{display:inline-block;margin-top:12px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#061022;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:800;box-shadow:0 12px 30px rgba(124,92,255,0.12);}
+
+/* CONTACT */
+.contact-grid{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;}
+.contact-card{background:var(--card);padding:20px;border-radius:12px;width:420px;}
+.contact-card p{margin:8px 0;color:var(--muted);}
+.socials{display:flex;gap:12px;margin-top:8px;}
+.icon{width:44px;height:44px;border-radius:8px;background:linear-gradient(90deg,rgba(255,255,255,0.02),rgba(255,255,255,0.00));display:flex;align-items:center;justify-content:center;font-weight:800;}
+
+/* FOOTER */
+footer{padding:36px 8%;text-align:center;color:var(--muted);font-size:14px;}
+
+/* RESPONSIVE */
+@media (max-width:980px){.grid{grid-template-columns:repeat(1,1fr);} .about-card,.info-card{grid-column:span 1;} .hero{flex-direction:column;padding:110px 6%;}.hero-right{width:100%;min-height:220px;} .cert-card{width:100%;} .contact-card{width:100%;} nav{left:12px;right:12px;}}
+
+/* LIGHTBOX */
+#lightbox{position:fixed;inset:0;background:rgba(1,2,8,0.85);display:none;align-items:center;justify-content:center;z-index:2000;padding:24px;}
+#lightbox img{max-width:95%;max-height:88%;box-shadow:0 30px 80px rgba(2,6,23,0.8);border-radius:8px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">
+    <div class="logo">IM</div>
+    <div style="line-height:1;">
+      <div style="font-weight:800;font-size:14px;">Syed Irfan</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:2px;">AI / ML </div>
+    </div>
+  </div>
+
+  <div class="navlinks">
+    <a href="#about">About</a>
+    <a href="#internship">Internship</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-left">
+    <div class="hi">Hi, I'm Syed Irfan</div>
+    <h1 class="name">Building intelligent systems that scale.</h1>
+    <div class="tagline">Third-year B.Tech (CSE AIML) • AI/ML | Computer Vision</div>
+
+    <div class="typewriter-wrap" aria-hidden="true">
+      <div class="typewriter">AgriConnect • NagarVaani • Sign-language → Text • NIDS (CNN+LSTM)</div>
+    </div>
+
+    <div style="margin-top:22px;display:flex;gap:12px;">
+      <a class="open-btn" href="#projects">View Projects</a>
+      <a class="open-btn" href="#contact" style="background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);">Contact</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <h2 class="section-title">About</h2>
+  <div class="underline"></div>
+  <div class="grid">
+    <div class="about-card">
+      <p>I’m a third-year B.Tech (CSE, AI & ML) student at SRM Institute of Science and Technology (Trichy). I build AI systems — from computer vision models to production-ready web apps. I enjoy solving hard problems, learning new techniques, and working in teams to deliver real impact. Currently pursuing internships to apply my ML, data and full-stack skills.</p>
+      <div style="margin-top:18px;color:var(--muted);font-weight:700;"> 
+      </div>
+    </div>
+
+    <aside class="info-card">
+      <div class="small-title">Fast info</div>
+      <div class="kv">
+        <div>Location: Trichy, Tamil Nadu</div>
+        <div>Email: irfuijukas@gmail.com</div>
+        <div>Phone: +91 89407 42364</div>
+        <div>GitHub: github.com/IrfanM-7</div>
+        <div>LinkedIn: syed-irfan-589b192ba</div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- INTERNSHIP -->
+<section id="internship" class="section">
+  <h2 class="section-title">Internship</h2>
+  <div class="underline"></div>
+
+  <div style="display:flex;gap:22px;flex-wrap:wrap;align-items:flex-start;">
+    <div style="flex:1;min-width:320px;">
+      <div style="background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);">
+        <h3 style="margin:0 0 6px 0;">Machine Learning Intern — Approtech R&D Solutions Pvt. Ltd.</h3>
+        <p style="margin:6px 0 0 0;color:var(--muted);">Worked on preprocessing, model development and a Sign Language to Text project using Mediapipe and ML. Completed online internship from <strong>30 June 2025</strong> to <strong>18 July 2025</strong>.</p>
+      </div>
+
+      <div class="cert-wrap">
+        <div class="cert-card">
+          <div class="small-title">Internship Certificate</div>
+          <!-- IMPORTANT: Put your certificate image file named "certificate.jpg" next to this index.html -->
+          <div class="cert-thumb" onclick="openLightbox();" role="button" title="Click to view certificate">
+            <img alt="Internship certificate" src="certificate.jpg" />
+          </div>
+          <div class="cert-meta">Machine Learning Intern — Approtech R&D Solutions · <br>30 Jun 2025 – 18 Jul 2025</div>
+          <a class="open-btn" href="#" onclick="openLightbox();return false;">Open certificate</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="width:420px;">
+      <div style="background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);">
+        <div class="small-title">Key takeaways</div>
+        <ul style="color:var(--muted);line-height:1.7;margin:8px 0 0 18px;">
+          <li>Built a Sign Language → Text converter (Mediapipe + RandomForest)</li>
+          <li>Worked with real-world webcam data and preprocessing pipelines</li>
+          <li>Improved model accuracy with careful feature engineering</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <h2 class="section-title">Projects</h2>
+  <div class="underline"></div>
+
+  <div class="project-list">
+    <div class="project">
+      <div class="project-thumb">AG</div>
+      <div class="project-info">
+        <h4>AgriConnect</h4>
+        <p>Real-time agricultural marketplace with Decision & Recommendation Engine (Streamlit + Firebase).</p>
+      </div>
+      <a class="gh-btn" href="https://github.com/IrfanM-7/AgriConnect.git" target="_blank">View on GitHub</a>
+    </div>
+
+    <div class="project">
+      <div class="project-thumb">NV</div>
+      <div class="project-info">
+        <h4>NagarVaani — Tamil AI Ecosystem</h4>
+        <p>Tamil chatbot + voicebot + civic complaint system (Whisper ASR, gTTS, Gradio UI).</p>
+      </div>
+      <a class="gh-btn" href="https://github.com/IrfanM-7/Nagarvaani.git" target="_blank">View on GitHub</a>
+    </div>
+
+    <div class="project">
+      <div class="project-thumb">SL</div>
+      <div class="project-info">
+        <h4>Sign Language → Text</h4>
+        <p>Real-time ASL recognition using Mediapipe landmarks + Random Forest classifier.</p>
+      </div>
+      <a class="gh-btn" href="https://github.com/IrfanM-7/Sign-Language-to-Text-conversion.git" target="_blank">View on GitHub</a>
+    </div>
+
+    <div class="project">
+      <div class="project-thumb">NIDS</div>
+      <div class="project-info">
+        <h4>Network Intrusion Detection (CNN + LSTM)</h4>
+        <p>Deep-learning based NIDS trained on NSL-KDD with oversampling strategies for imbalance.</p>
+      </div>
+      <a class="gh-btn" href="#" target="_blank">View on GitHub</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="padding:80px 0; background:#0d0e1a;">
+  <h2 style="text-align:center; font-size:42px; color:white; font-weight:600; margin-bottom:10px;">
+    Contact Me
+  </h2>
+  <div style="width:60px; height:4px; background:#f4a45f; margin:0 auto 40px; border-radius:4px;"></div>
+
+  <form style="max-width:700px; margin:0 auto;">
+    <input type="text" placeholder="Your Name" 
+           style="width:100%; padding:18px; margin-bottom:20px;
+                  background:#111225; border:1px solid #1c1d2e; border-radius:10px;
+                  color:white; font-size:16px;">
+
+    <input type="email" placeholder="Your Email" 
+           style="width:100%; padding:18px; margin-bottom:20px;
+                  background:#111225; border:1px solid #1c1d2e; border-radius:10px;
+                  color:white; font-size:16px;">
+
+    <textarea placeholder="Your Message" rows="5"
+              style="width:100%; padding:18px; margin-bottom:20px;
+                     background:#111225; border:1px solid #1c1d2e; border-radius:10px;
+                     color:white; font-size:16px; resize:none;"></textarea>
+
+    <button type="submit"
+            style="width:100%; padding:16px; background:#f4a45f; 
+                   border:none; border-radius:12px; font-size:18px;
+                   font-weight:600; cursor:pointer;">
+      Send Message
+    </button>
+  </form>
+
+  <p style="text-align:center; color:#b3b3c7; margin-top:40px; font-size:14px;">
+    You can also reach me via:
+  </p>
+
+  <!-- UPDATED CLICKABLE LINKS -->
+  <p style="text-align:center; color:white; font-size:16px;">
+
+    <strong>Email:</strong>
+    <a href="mailto:irfuijukas@gmail.com" 
+       style="color:#f4a45f; text-decoration:none;">
+       irfuijukas@gmail.com
+    </a>
+    &nbsp;&nbsp;
+
+    <strong>LinkedIn:</strong>
+    <a href="https://www.linkedin.com/in/syed-irfan-589b192ba" target="_blank"
+       style="color:#f4a45f; text-decoration:none;">
+       syed-irfan
+    </a>
+    &nbsp;&nbsp;
+
+    <strong>GitHub:</strong>
+    <a href="https://github.com/IrfanM-7" target="_blank"
+       style="color:#f4a45f; text-decoration:none;">
+       IrfanM-7
+    </a>
+
+  </p>
+</section>
+
+<footer style="text-align:center; padding:20px; color:#999; background:#0d0e1a;">
+  © 2025 Syed Irfan · AI/ML Developer · Trichy, Tamil Nadu
+</footer>
+
+
+<!-- Lightbox modal (full certificate) -->
+<div id="lightbox" onclick="closeLightbox();">
+  <img alt="Certificate full view" id="lightbox-img" src="certificate.jpg" />
+</div>
+
+<script>
+// Smooth-scroll nav
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', e=>{
+    e.preventDefault();
+    const id = a.getAttribute('href');
+    if(id === '#') return;
+    const el = document.querySelector(id);
+    if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+
+// Reveal simple (fade)
+const reveals = document.querySelectorAll('.section, .hero-left, .hero-right');
+function reveal(){ reveals.forEach(r=>{ const rect=r.getBoundingClientRect(); if(rect.top < window.innerHeight-100){ r.style.opacity=1; r.style.transform='none'; }})}
+window.addEventListener('scroll', reveal);
+reveal();
+
+// Lightbox open/close
+function openLightbox(){
+  const lb = document.getElementById('lightbox');
+  lb.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(){
+  const lb = document.getElementById('lightbox');
+  lb.style.display = 'none';
+  document.body.style.overflow = 'auto';
+}
+
+// ⭐ NEW resume functions ⭐
+function viewResume(){
+  document.getElementById('resumeViewer').style.display = 'block';
+}
+
+function downloadResume(){
+  window.location.href = 'resume.pdf';
+
+}
+</script>
+
+</body>
+</html>
